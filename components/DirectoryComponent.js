@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import { render } from "react-dom";
 import  {View, FlatList, Text} from 'react-native';
 import { Tile } from 'react-native-elements';
 import { connect } from 'react-redux';
