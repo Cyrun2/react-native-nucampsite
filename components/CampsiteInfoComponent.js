@@ -17,7 +17,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     postFavorite: campsiteId => (postFavorite(campsiteId)),
-    postComment: comment => postComment(campsiteId, rating, author, text)
+    postComment: comment => (postComment(campsiteId, rating, author, text))
 };
 
 function RenderCampsite(props) {
@@ -60,16 +60,17 @@ function RenderCampsite(props) {
 function RenderComments({comments}) {
     
     const renderCommentItem = ({item}) => {
+        let re = /t|z/gi;
         return (
             <View style={{margin:10}}>
                 <Text style={{fontSize: 14}}>{item.text}</Text>
                 <Rating 
-                    style={{alignItems:'flex-start', paddingVertical:'5%'}}
+                    style={{alignItems:'flex-start', paddingVertical: '5%'}}
                     startingValue={item.rating}
                     readonly
-                    imageSize='10'
+                    imageSize={10}
                 /> 
-                <Text style={{fontSize: 12}}>{`--${item.author}, ${item.date}`}</Text>
+                <Text style={{fontSize: 12}}>{`--${item.author}, ${item.date.replace(re, " ")}`}</Text>
             </View>
         );
     };
@@ -145,11 +146,13 @@ class CampsiteInfo extends Component {
                     onRequestClose={() => this.toggleModal()}
                 >
                     <View style={styles.modal}>
-                        <Rating 
+                        <Rating
+                            showRating 
                             startingValue={this.state.rating}
-                            imageSize='40'
+                            imageSize={40}
                             onFinishRating={rating => this.setState({rating: rating})}
-                            style={{paddingVertical: 10}}
+                            style={{paddingVertical: 50}}
+                            ratingTextColor='#5637DD'
                         />
                         <Input 
                             placeholder='author'

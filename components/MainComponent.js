@@ -42,7 +42,7 @@ const DirectoryNavigator = createStackNavigator(
         defaultNavigationOptions: {
             headerStyle: {
                 backgroundColor: '#5637DD',
-                //marginTop: Platform.OS === 'ios' ? 25 : 0
+                marginTop: Platform.OS === 'ios' ? 25 : 0
                 
             },
             headerTintColor: '#fff',
