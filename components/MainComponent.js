@@ -6,7 +6,7 @@ import About from './AboutComponent';
 import Contact from './ContactComponent';
 import Reservation from "./ReservationComponent";
 import Constants from 'expo-constants';
-import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
+import { View, Platform, StyleSheet, Text, ScrollView, Image, LogBox } from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from "react-navigation-drawer";
 import {createAppContainer} from 'react-navigation';
@@ -258,6 +258,7 @@ class Main extends Component {
     }
 
     render() {
+        LogBox.ignoreAllLogs();
         return (
             <View style={{
                 flex: 1,
